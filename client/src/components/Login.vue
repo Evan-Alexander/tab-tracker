@@ -13,6 +13,7 @@
           <br>
           <v-text-field
           label="Password"
+          type="password"
           v-model="password"
           ></v-text-field>
           <br>
@@ -39,7 +40,7 @@ export default {
   methods: {
     async login () {
       try {
-        await AuthenticationService.register({
+        await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
