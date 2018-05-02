@@ -20,7 +20,6 @@
           <v-btn @click="register" class="cyan white--text">
             register
           </v-btn>
-          <v-btn color="info">Info</v-btn>
         </div>
       </div>
     </v-flex>
