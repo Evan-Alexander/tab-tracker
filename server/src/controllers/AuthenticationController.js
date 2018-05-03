@@ -1,4 +1,5 @@
-const {User} = require('../models')
+// WEB TOKENS - assign to new user upon register and login / error logging
+const { User } = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
 

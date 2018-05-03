@@ -1,5 +1,6 @@
+// AuthenticationControllerPolicy - email and password validation / errors
 const Joi = require('joi')
-
+// Joi - schema description language and validator
 module.exports = {
   register (req, res, next) {
     const schema = {
@@ -8,7 +9,6 @@ module.exports = {
         new RegExp('^[a-zA-Z0-9]{6,12}$')
       )
     }
-
     const {error, value} = Joi.validate(req.body, schema)
 
     if (error) {

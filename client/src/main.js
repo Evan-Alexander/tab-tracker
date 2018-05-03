@@ -10,13 +10,15 @@ import store from '@/store/store'
 
 Vue.config.productionTip = false
 
+// Gives the Vue app a global instance of Vuetify (Material-ui CCS Framework)
 Vue.use(Vuetify)
-
+// Sets up global state
 sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  // Inlcude router and vue in the app.
   router,
   store,
   components: { App },
