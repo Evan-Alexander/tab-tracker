@@ -90,8 +90,6 @@ import SongsService from '@/services/SongsService'
 export default {
   data () {
     return {
-      error: null,
-      alert: false,
       song: {
         title: null,
         artist: null,
@@ -100,8 +98,9 @@ export default {
         albumImageUrl: null,
         youtubeId: null,
         lyrics: null,
-        tab: null
+        tabs: null
       },
+      error: null,
       required: (value) => !!value || 'Required.'
     }
   },
@@ -111,6 +110,7 @@ export default {
       const areAllSongsFilledIn = Object
         .keys(this.song)
         .every(key => !!this.song[key])
+      console.log(this.song.albumImageUrl)
       if (!areAllSongsFilledIn) {
         this.alert = true
         this.error = 'Please fill in all the required fields.'
