@@ -31,4 +31,10 @@ export default {
   margin-top: 60px;
 }
 
+.danger-alert {
+  color: red;
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
 </style>

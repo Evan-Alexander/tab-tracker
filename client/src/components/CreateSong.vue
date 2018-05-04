@@ -4,45 +4,74 @@
     <v-layout>
       <v-flex xs4 class="mt-3">
         <panel title="Song Metadata">
+
           <v-text-field
           label="Title"
           v-model="song.title"
+          required
+          :rules="[required]"
           ></v-text-field>
+
           <v-text-field
           label="Artist"
           v-model="song.artist"
+          required
+          :rules="[required]"
           ></v-text-field>
+
           <v-text-field
           label="Genre"
           v-model="song.genre"
+          required
+          :rules="[required]"
           ></v-text-field>
+
           <v-text-field
           label="Album"
           v-model="song.album"
+          required
+          :rules="[required]"
           ></v-text-field>
+
           <v-text-field
-          label="Album Image URL"
           v-model="song.albumImageUrl"
+          label="Album Image URL"
+          required
+          :rules="[required]"
           ></v-text-field>
+
           <v-text-field
           label="YouTube ID"
           v-model="song.youtubeId"
+          required
+          :rules="[required]"
           ></v-text-field>
+
         </panel>
       </v-flex>
       <v-flex xs8 class="ml-3 mt-3">
         <panel title="Song Structure">
+
           <v-text-field
           label="Tabs"
-          multi-line
           v-model="song.tabs"
+          required
+          :rules="[required]"
+          multi-line
           ></v-text-field>
+
           <v-text-field
           label="Lyrics"
-          multi-line
           v-model="song.lyrics"
+          required
+          :rules="[required]"
+          multi-line
           ></v-text-field>
+
         </panel>
+        <div class="danger-alert" v-if="error">
+          {{ error }}
+        </div>
         <v-btn
           dark
           class="cyan"
@@ -61,6 +90,8 @@ import SongsService from '@/services/SongsService'
 export default {
   data () {
     return {
+      error: null,
+      alert: false,
       song: {
         title: null,
         artist: null,
@@ -70,11 +101,21 @@ export default {
         youtubeId: null,
         lyrics: null,
         tab: null
-      }
+      },
+      required: (value) => !!value || 'Required.'
     }
   },
   methods: {
     async create () {
+      this.error = null
+      const areAllSongsFilledIn = Object
+        .keys(this.song)
+        .every(key => !!this.song[key])
+      if (!areAllSongsFilledIn) {
+        this.alert = true
+        this.error = 'Please fill in all the required fields.'
+        return
+      }
       try {
         await SongsService.post(this.song)
         this.$router.push({
