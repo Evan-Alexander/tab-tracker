@@ -12,7 +12,8 @@ Vue.config.productionTip = false
 
 // Gives the Vue app a global instance of Vuetify (Material-ui CCS Framework)
 Vue.use(Vuetify)
-// Sets up global state
+
+// Syncs the store with the router
 sync(store, router)
 
 /* eslint-disable no-new */
