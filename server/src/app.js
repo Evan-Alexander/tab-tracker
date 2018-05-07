@@ -15,7 +15,7 @@ app.use(cors())
 require('./routes')(app)
 
 // Use sequelize as the ORM for sQlite
-sequelize.sync({force: true})
+sequelize.sync()
   .then(() => {
     app.listen(config.port || 8081)
     console.log(`Server started on ${config.port}`)
