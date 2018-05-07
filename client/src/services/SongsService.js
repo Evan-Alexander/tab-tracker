@@ -1,6 +1,7 @@
 import Api from '@/services/Api'
 // api.js sets up the base URL
 export default {
+
   getAllSongs () {
     return Api().get('songs')
   },
@@ -9,5 +10,8 @@ export default {
   },
   show (songId) {
     return Api().get(`songs/${songId}`)
+  },
+  put (songId) {
+    return Api().put(`songs/${songId}`)
   }
 }

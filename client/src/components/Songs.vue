@@ -15,6 +15,7 @@
           </v-btn>
 
         <div v-for="song in songs" :key="song.id" class="song">
+
           <v-layout>
             <v-flex xs6>
               <div class="song-title">
@@ -35,13 +36,13 @@
                   params: { songId: song.id }})">
                 View
               </v-btn>
-
             </v-flex>
+
             <v-flex xs6>
               <img class="album-image" :src="song.albumImageUrl">
             </v-flex>
-          </v-layout>
 
+          </v-layout>
         </div>
       </panel>
     </v-flex>
@@ -92,4 +93,5 @@ export default {
   .song-genre {
     font-size: 18px;
   }
+
 </style>

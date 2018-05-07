@@ -7,12 +7,14 @@ import Vuetify from 'vuetify'
 import { sync } from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css'
 import store from '@/store/store'
+import VueYouTubeEmbed from 'vue-youtube-embed'
 
 Vue.config.productionTip = false
 
 // Gives the Vue app a global instance of Vuetify (Material-ui CCS Framework)
 Vue.use(Vuetify)
-
+// Use the Youtube plugin with Vue
+Vue.use(VueYouTubeEmbed)
 // Syncs the store with the router
 sync(store, router)
 
