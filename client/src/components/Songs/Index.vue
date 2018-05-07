@@ -2,19 +2,21 @@
 <template>
   <v-layout>
     <v-flex xs6 offset-xs3>
-      <songs-panel />
+      <songs-search-panel />
+      <songs-panel class="mt-3"/>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 import SongsPanel from './SongsPanel'
+import SongsSearchPanel from './SongsSearchPanel'
+
 export default {
   components: {
-    Panel,
-    SongsPanel
+    SongsPanel,
+    SongsSearchPanel
   },
   data () {
     return {
