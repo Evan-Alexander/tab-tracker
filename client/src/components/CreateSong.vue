@@ -109,7 +109,6 @@ export default {
       const areAllSongsFilledIn = Object
         .keys(this.song)
         .every(key => !!this.song[key])
-      console.log(this.song.albumImageUrl)
       if (!areAllSongsFilledIn) {
         this.alert = true
         this.error = 'Please fill in all the required fields.'

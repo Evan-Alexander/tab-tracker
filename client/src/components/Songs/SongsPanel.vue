@@ -58,9 +58,14 @@ export default {
       this.$router.push(route)
     }
   },
-  async mounted () {
-    this.songs = (await SongsService.getAllSongs()).data
-    // do a request to the backend for all songs
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.getAllSongs(value)).data
+        console.log(this.songs)
+      }
+    }
   }
 }
 </script>

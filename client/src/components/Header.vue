@@ -4,7 +4,7 @@
     <v-toolbar-title class="mr-4">
       <span
       class="header-logo"
-      @click="navigateTo({name: 'root'})">
+      @click="navigateTo({name: 'songs'})">
       TabTracker
     </span>
     </v-toolbar-title>
@@ -53,7 +53,7 @@ export default {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({
-        name: 'root'
+        name: 'songs'
       })
     }
   }

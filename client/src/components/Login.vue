@@ -13,7 +13,7 @@
           v-model="password"
         ></v-text-field>
         <br>
-        <div class="error" v-html="error"></div>
+        <div class="danger-alert" v-html="error"></div>
         <v-btn @click="login" class="cyan white--text">
           Login
         </v-btn>
@@ -42,6 +42,9 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name: 'songs'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -51,7 +54,5 @@ export default {
 </script>
 
 <style scoped>
-  .error {
-    color: red;
-  }
+
 </style>
